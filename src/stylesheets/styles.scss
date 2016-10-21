@@ -1,0 +1,17 @@
+body {
+  background: lightgrey;
+}
+.grid {
+  background: white;
+}
+
+.cell {
+  fill: white;
+  stroke: gray;
+  stroke-width: 0.3;
+  width: 5px;
+  height: 5px;
+  &.live {
+    fill: red;
+  }
+}
