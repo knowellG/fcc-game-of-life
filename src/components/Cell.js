@@ -4,6 +4,7 @@ const Cell = (props) => {
   let { id, x, y, index, live, clickCell } = props
   let className = ''
   live ? className = 'cell live' : className = 'cell'
+
   return (
     <rect
       id = {id}

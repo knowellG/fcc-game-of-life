@@ -1,3 +1,4 @@
+
 const incrementGeneration = (current) => {
   return {
     type: 'INCREMENT_GENERATION',
@@ -14,4 +15,56 @@ const clickCell = (index) => {
   }
 }
 
-export {incrementGeneration, clickCell}
+const resetGame = () => {
+  return {
+    type: 'RESET'
+  }
+}
+
+// thunks set and clear interval on start and stop
+let interval = null
+const startGame = () => {
+  return (dispatch, getState) => {
+    dispatch({type: 'START'})
+    if (getState().isOn, interval === null) {
+      interval = setInterval(() => {
+        dispatch(incrementGeneration(getState().generation))
+      }, 10)
+    }
+    return
+  }
+}
+
+const stopGame = () => {
+  return (dispatch, getState) => {
+    const { isOn, generation } = getState()
+
+    if (isOn && interval !== null) {
+      clearInterval(interval)
+      interval = null
+      dispatch({type: 'STOP'})
+    }
+  }
+}
+
+const randomizeStart = () => {
+  return (dispatch, getState) => {
+    dispatch({type: 'RANDOMIZE'})
+    dispatch({type: 'START'})
+    if (getState().isOn, interval === null) {
+      interval = setInterval(() => {
+        dispatch(incrementGeneration(getState().generation))
+      }, 10)
+    }
+    return
+  }
+}
+
+export {
+  incrementGeneration,
+  clickCell,
+  startGame,
+  stopGame,
+  resetGame,
+  randomizeStart
+}

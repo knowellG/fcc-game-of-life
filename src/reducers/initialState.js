@@ -1,14 +1,17 @@
 
 const initialState = {
   generation: 0,
-  gridWidth: 40,
-  gridHeight: 20,
-  cellWidth: 5
+  gridWidth: 50,
+  gridHeight: 30,
+  cellWidth: 5,
+  isOn: false
 }
 
-/* cells = [{
-  id, index, x, y, row, col, live, liveNeighbors, neighbors
-}] */
+/* cells = [
+  {id, index, x, y, live, neighbors, liveNeighbors},
+  {id, index, x, y, live, neighbors, liveNeighbors},
+  {id, index, x, y, live, neighbors, liveNeighbors},
+] */
 
 let { gridWidth, gridHeight, cellWidth } = initialState
 
@@ -75,22 +78,26 @@ const getNeighborIndices = (row, col, cellIndex, gridWidth, gridHeight) => {
 }
 
 const buildCellsArr = (gridWidth, gridHeight, cellWidth) => {
+
   let cellsArr = [];
   let index = 0;
+
   for (let rowIndex = 0; rowIndex < gridHeight; rowIndex++) {
-    let y = rowIndex * cellWidth;
+    let y = rowIndex * cellWidth; // svg coordinate y
+
     for (let colIndex = 0; colIndex < gridWidth; colIndex++) {
-      let x = colIndex * cellWidth;
-      let id = rowIndex+'-'+colIndex;
-      let row = rowIndex
-      let col = colIndex
+
+      let x = colIndex * cellWidth; // svg coordinate x
+      let id = rowIndex+'-'+colIndex; // row-col i.e. "0-24"
       let live = false
       let liveNeighbors = 0
-      let neighbors = getNeighborIndices(row, col, index, gridWidth, gridHeight)
+
+      let neighbors = getNeighborIndices(rowIndex, colIndex, index, gridWidth, gridHeight)
       cellsArr.push({id, index, x, y, live, liveNeighbors, neighbors})
       index ++
     }
   }
+
   return cellsArr
 }
 

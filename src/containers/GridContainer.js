@@ -4,9 +4,20 @@ import { bindActionCreators } from 'redux'
 
 import Grid from '../components/Grid'
 
-import { incrementGeneration, clickCell } from '../actions/actions'
+import { incrementGeneration, clickCell, randomizeStart } from '../actions/actions'
 
 class GridContainer extends Component {
+
+  componentDidMount() {
+    this.firstRender = true;
+    if (this.firstRender) {
+      this.props.randomizeStart()
+    }
+  }
+
+  componentDidUpdate() {
+    this.firstRender = false;
+  }
 
   render() {
     let { gridWidth,
@@ -19,18 +30,12 @@ class GridContainer extends Component {
     } = this.props
 
     return (
-      <div>
-        <svg className="grid-container"
-          viewBox={'0 0 '+gridWidth*5+' '+gridHeight*5}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <Grid cellsArr={cells} clickCell={clickCell} />
-        </svg>
-        <button onClick={()=>incrementGeneration(generation)}>
-          + Generation
-        </button>
-        <div>Generation: {generation}</div>
-      </div>
+      <svg className="grid-container"
+        viewBox={'0 0 '+gridWidth*5+' '+gridHeight*5}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Grid cellsArr={cells} clickCell={clickCell} />
+      </svg>
     )
   }
 }
@@ -43,7 +48,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({incrementGeneration, clickCell}, dispatch)
+  return bindActionCreators({incrementGeneration, clickCell, randomizeStart}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GridContainer)

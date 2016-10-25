@@ -1,17 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import GridContainer from './containers/GridContainer'
+
 import style from './stylesheets/styles.scss'
 import reducer from './reducers'
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import GridContainer from './containers/GridContainer'
+import ControlsContainer from './containers/ControlsContainer'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 const rootEl = document.getElementById('root')
 
 ReactDOM.render(
   <Provider store={store}>
-    <GridContainer />
+    <div>
+      <GridContainer />
+      <ControlsContainer />
+    </div>
   </Provider>,
   rootEl
 )
