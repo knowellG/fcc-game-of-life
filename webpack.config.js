@@ -1,7 +1,11 @@
+var path = require('path')
+var webpack = require('webpack')
+var ghpages = require('gh-pages')
+
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname,
+    path: __dirname + '/build',
     filename: "bundle.js",
     publicPath: "/build/"
   },

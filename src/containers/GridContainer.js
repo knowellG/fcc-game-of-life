@@ -9,10 +9,10 @@ import { incrementGeneration, clickCell, randomizeStart } from '../actions/actio
 class GridContainer extends Component {
 
   componentDidMount() {
-    this.firstRender = true;
-    if (this.firstRender) {
+    // this.firstRender = true;
+    // if (this.firstRender) {
       this.props.randomizeStart()
-    }
+    // }
   }
 
   componentDidUpdate() {
