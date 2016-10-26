@@ -10,9 +10,9 @@ $subtitle: 'Lato', sans-serif;
 body {
   background: $lightgray;
   text-align: center;
+  margin: 0;
   header {
     color: $gray;
-
     h1 {
       font-family: $title;
       font-size: 68px;
@@ -58,6 +58,18 @@ body {
         fill: red;
       }
     }
+  }
+  footer {
 
+    margin-top: 50px;
+    width: 100%;
+    color: $darkgray;
+    background: $gray;
+    padding: 1%;
+    a {
+      font-family: $subtitle;
+      color: $darkgray;
+      text-decoration: none;
+    }
   }
 }
