@@ -17,8 +17,8 @@ const rootEl = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <GridContainer />
       <ControlsContainer />
+      <GridContainer />
     </div>
   </Provider>,
   rootEl

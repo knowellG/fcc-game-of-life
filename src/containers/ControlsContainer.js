@@ -9,15 +9,16 @@ class ControlsContainer extends Component {
     let { generation, incrementGeneration, startGame, stopGame, resetGame } = this.props
     return (
       <div className = "controls">
-        <button onClick={()=>incrementGeneration(generation)}>
-          + Generation
-        </button>
+
         <div>Generation: {generation} </div>
         <button onClick={()=>startGame()}>
           START
         </button>
         <button onClick={()=>stopGame()}>
           STOP
+        </button>
+        <button onClick={()=>incrementGeneration(generation)}>
+          + Generation
         </button>
         <button onClick={()=>resetGame()}>
           CLEAR

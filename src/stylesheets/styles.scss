@@ -1,17 +1,63 @@
-body {
-  background: lightgrey;
-}
-.grid {
-  background: white;
-}
+$lightgray: #efefef;
+$darkgray: #666;
+$gray: #a9a9a9;
+$sky: #CAEBF2;
+$red: #FF3BF3;
 
-.cell {
-  fill: white;
-  stroke: gray;
-  stroke-width: 0.3;
-  width: 5px;
-  height: 5px;
-  &.live {
-    fill: red;
+$title: 'Exo 2', sans-serif;
+$subtitle: 'Lato', sans-serif;
+
+body {
+  background: $lightgray;
+  text-align: center;
+  header {
+    color: $gray;
+
+    h1 {
+      font-family: $title;
+      font-size: 68px;
+      margin-top: 10px;
+      margin-bottom: -20px;
+    }
+    .subheader {
+      background: $sky;
+      font-family: $subtitle;
+      color: $darkgray;
+      margin: 0 auto;
+      max-width: 60%;
+      padding: 2% 0;
+      h2 {
+        font-size: 28px;
+        margin: 10px;
+      }
+      h3 {
+        font-size: 24 px;
+        margin: 8px;
+      }
+    }
+  }
+  #root {
+    max-width: 80%;
+    margin: 0 auto;
+    .controls {
+      background: $gray;
+      color: $darkgray;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    .grid {
+      background: white;
+    }
+    .cell {
+      fill: white;
+      stroke: gray;
+      stroke-width: 0.3;
+      width: 5px;
+      height: 5px;
+      &.live {
+        fill: red;
+      }
+    }
+
   }
 }
