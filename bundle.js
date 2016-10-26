@@ -23954,11 +23954,12 @@
 	var interval = null;
 	var startGame = function startGame() {
 	  return function (dispatch, getState) {
+	    console.log('hi');
 	    dispatch({ type: 'START' });
 	    if (getState().isOn, interval === null) {
 	      interval = setInterval(function () {
 	        dispatch(incrementGeneration(getState().generation));
-	      }, 10);
+	      }, 100);
 	    }
 	    return;
 	  };
@@ -23987,7 +23988,7 @@
 	    if (getState().isOn, interval === null) {
 	      interval = setInterval(function () {
 	        dispatch(incrementGeneration(getState().generation));
-	      }, 10);
+	      }, 100);
 	    }
 	    return;
 	  };
