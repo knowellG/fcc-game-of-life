@@ -90,8 +90,8 @@
 	  _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_GridContainer2.default, null),
-	    _react2.default.createElement(_ControlsContainer2.default, null)
+	    _react2.default.createElement(_ControlsContainer2.default, null),
+	    _react2.default.createElement(_GridContainer2.default, null)
 	  )
 	), rootEl);
 
@@ -23121,7 +23121,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background: lightgrey; }\n\n.grid {\n  background: white; }\n\n.cell {\n  fill: white;\n  stroke: gray;\n  stroke-width: 0.3;\n  width: 5px;\n  height: 5px; }\n  .cell.live {\n    fill: red; }\n", ""]);
+	exports.push([module.id, "body {\n  background: #efefef;\n  text-align: center; }\n  body header {\n    color: #a9a9a9; }\n    body header h1 {\n      font-family: \"Exo 2\", sans-serif;\n      font-size: 68px;\n      margin-top: 10px;\n      margin-bottom: -20px; }\n    body header .subheader {\n      background: #CAEBF2;\n      font-family: \"Lato\", sans-serif;\n      color: #666;\n      margin: 0 auto;\n      max-width: 60%;\n      padding: 2% 0; }\n      body header .subheader h2 {\n        font-size: 28px;\n        margin: 10px; }\n      body header .subheader h3 {\n        font-size: 24 px;\n        margin: 8px; }\n  body #root {\n    max-width: 80%;\n    margin: 0 auto; }\n    body #root .controls {\n      background: #a9a9a9;\n      color: #666;\n      margin: 10px auto;\n      padding: 10px; }\n    body #root .grid {\n      background: white; }\n    body #root .cell {\n      fill: white;\n      stroke: gray;\n      stroke-width: 0.3;\n      width: 5px;\n      height: 5px; }\n      body #root .cell.live {\n        fill: red; }\n", ""]);
 
 	// exports
 
@@ -24053,13 +24053,6 @@
 	        'div',
 	        { className: 'controls' },
 	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              return incrementGeneration(generation);
-	            } },
-	          '+ Generation'
-	        ),
-	        _react2.default.createElement(
 	          'div',
 	          null,
 	          'Generation: ',
@@ -24079,6 +24072,13 @@
 	              return stopGame();
 	            } },
 	          'STOP'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick() {
+	              return incrementGeneration(generation);
+	            } },
+	          '+ Generation'
 	        ),
 	        _react2.default.createElement(
 	          'button',
