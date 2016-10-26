@@ -25,11 +25,12 @@ const resetGame = () => {
 let interval = null
 const startGame = () => {
   return (dispatch, getState) => {
+    console.log('hi')
     dispatch({type: 'START'})
     if (getState().isOn, interval === null) {
       interval = setInterval(() => {
         dispatch(incrementGeneration(getState().generation))
-      }, 10)
+      }, 100)
     }
     return
   }
@@ -54,7 +55,7 @@ const randomizeStart = () => {
     if (getState().isOn, interval === null) {
       interval = setInterval(() => {
         dispatch(incrementGeneration(getState().generation))
-      }, 10)
+      }, 100)
     }
     return
   }
